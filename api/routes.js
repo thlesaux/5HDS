@@ -1,0 +1,21 @@
+const userController = require('./user/controller')
+const productController = require('./product/controller')
+
+module.exports = function (app) {
+    app.route('/add-user')
+        .post(userController.addUser)
+    app.route('/update-user/:token')
+        .put(userController.updateUser)
+    app.route('/delete-user/:token')
+        .delete(userController.deleteUser)
+    app.route('/list-user')
+        .get(userController.listUser)
+    app.route('/add-product')
+        .post(productController.addProduct)
+    app.route('/update-product/:token')
+        .put(productController.updateProduct)
+    app.route('/delete-product/:token')
+        .delete(productController.deleteProduct)
+    app.route('/list-product')
+        .get(productController.listProduct)
+}
